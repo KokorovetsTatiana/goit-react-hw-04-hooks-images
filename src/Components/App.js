@@ -6,7 +6,7 @@ import Button from "./Button/Button";
 import Loader from "./Loader/Loader";
 import Modal from "./Modal/Modal";
 import ModalImage from "./ModalImage/ModalImage";
-import fetchImage from "../Services/searchAPI";
+import imageApi from "../Services/api";
 
 function App() {
   const [images, setImages] = useState([]);
@@ -32,7 +32,8 @@ function App() {
       return;
     }
 
-    getImage();
+    fetchImage();
+    // eslint-disable-next-line
   }, [keyword]);
 
   useEffect(() => {
@@ -58,9 +59,9 @@ function App() {
     });
   };
 
-  function getImage() {
+  function fetchImage() {
     setLoading(true);
-    fetchImage(keyword, page)
+    imageApi(keyword, page)
       .then((data) => {
         setImages((images) => [...images, ...data]);
         setPage((page) => page + 1);
