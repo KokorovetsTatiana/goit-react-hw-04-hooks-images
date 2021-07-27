@@ -60,7 +60,7 @@ export default function ImageGallery({ query }) {
           </button>
         </section>
       ) : (
-        <h3>Please, enter the name of the image to find</h3>
+        <h3>Please, enter keyword of the image to find</h3>
       )}
     </section>
   );
